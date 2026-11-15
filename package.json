@@ -4,11 +4,27 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
-    "test": "node --test",
-    "start": "node src/server.js"
+    "test": "node --test test/*.test.js && vitest run",
+    "test:backend": "node --test test/*.test.js",
+    "test:frontend": "vitest run",
+    "start": "node src/server.js",
+    "dev": "vite",
+    "dev:lan": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
     "decimal.js": "^10.6.0",
-    "express": "^5.3.0"
+    "express": "^5.3.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.3",
+    "@testing-library/user-event": "^14.6.10",
+    "@vitejs/plugin-react": "^6.3.0",
+    "jsdom": "^29.1.1",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0"
   }
 }
