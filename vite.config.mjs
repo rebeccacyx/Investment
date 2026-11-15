@@ -13,6 +13,6 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: ['./test/frontend/setup.js'],
-    include: ['test/frontend/*.test.jsx'],
+    include: ['test/frontend/*.test.jsx', 'test/frontend/*.test.js'],
   },
 });
