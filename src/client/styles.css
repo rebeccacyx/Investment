@@ -35,7 +35,7 @@ h3 { margin: 0; font-size: 14px; color: #28454d; }
 .summary-card span { color: #688188; font-size: 12px; }
 .summary-card strong { color: #173e46; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.1; font-variant-numeric: tabular-nums; letter-spacing: -.03em; }
 .summary-card small { color: #82969b; font-size: 11px; }
-.overview-alerts { margin-top: 24px; }
+.overview-alerts { margin-top: 27px; }
 .overview-detail { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(290px, 1fr); gap: 22px; margin-top: 27px; }
 .overview-table { min-width: 650px; }
 .overview-industry-table { min-width: 320px; }
@@ -101,22 +101,14 @@ tbody th { font-weight: 600; }
 .delta { color: #227c72; }
 .symbol { color: #126e66; font-weight: 700; margin-right: 7px; }
 .instrument-name { color: #526d74; font-weight: 500; }
-.comparison-bottom { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 30px; margin-top: 28px; }
-.metric-row, .metric-legend { display: grid; grid-template-columns: 1.15fr 1fr 1fr .8fr; align-items: center; gap: 10px; padding: 13px 0; border-bottom: 1px solid #e9eff0; font-size: 12px; }
-.metric-row strong, .metric-row em { text-align: right; font-size: 12px; font-style: normal; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.metric-row em { color: #227c72; }
-.metric-legend { color: #83979c; font-size: 10px; border: 0; }
-.metric-legend span:not(:first-child) { text-align: right; }
-.compare-label { color: #789096; font-size: 11px; font-weight: 700; margin: 14px 0 7px; }
-.comparison-bottom .alert-list { gap: 5px; }
-.comparison-bottom .alert-item { padding: 7px 9px; }
+.cash-heading { margin-top: 28px; }
+.cash-table { min-width: 520px; }
 .industry-heading { margin-top: 30px; }
 .industry-table { min-width: 650px; }
 .footer { text-align: center; color: #91a2a6; font-size: 11px; padding: 0 20px 28px; }
 
 @media (max-width: 1050px) {
   .overview-detail { grid-template-columns: 1fr; }
-  .comparison-bottom { grid-template-columns: 1fr; }
   .trade-form { grid-template-columns: 1fr 1fr 1fr auto; }
 }
 @media (max-width: 700px) {
@@ -136,6 +128,4 @@ tbody th { font-weight: 600; }
   .trade-form button { grid-column: 2; grid-row: 3; }
   .save-form { flex-direction: column; align-items: stretch; }
   .save-form label { width: 100%; }
-  .metric-row, .metric-legend { grid-template-columns: .8fr 1fr 1fr .7fr; gap: 5px; font-size: 11px; }
-  .metric-row strong, .metric-row em { font-size: 11px; }
 }
