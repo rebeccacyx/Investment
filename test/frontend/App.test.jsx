@@ -108,13 +108,23 @@ describe('front-end state flow', () => {
     expect(api.simulate).not.toHaveBeenCalled();
   });
 
-  it('rejects a non-positive quantity before submitting a candidate sequence', async () => {
+  it('shows a distinct message for fractional and non-positive quantities', async () => {
     const user = userEvent.setup();
     render(<App />);
     await screen.findByText('演示组合');
+    await user.type(screen.getByLabelText('数量'), '0.1');
+    await user.click(screen.getByRole('button', { name: '添加交易' }));
+    expect(await screen.findByText('请输入整数。')).toBeTruthy();
+    expect(api.simulate).not.toHaveBeenCalled();
+    await user.clear(screen.getByLabelText('数量'));
+    await user.type(screen.getByLabelText('数量'), '-1');
+    await user.click(screen.getByRole('button', { name: '添加交易' }));
+    expect(await screen.findByText('数量必须为大于0。')).toBeTruthy();
+    expect(api.simulate).not.toHaveBeenCalled();
+    await user.clear(screen.getByLabelText('数量'));
     await user.type(screen.getByLabelText('数量'), '0');
     await user.click(screen.getByRole('button', { name: '添加交易' }));
-    expect(await screen.findByText('请输入大于 0 的整数。')).toBeTruthy();
+    expect(await screen.findByText('数量必须为大于0。')).toBeTruthy();
     expect(api.simulate).not.toHaveBeenCalled();
     expect(screen.getByText('尚无模拟交易。添加交易后可查看调仓变化。')).toBeTruthy();
   });

@@ -144,11 +144,16 @@ export default function App() {
   async function addTrade(event) {
     event.preventDefault();
     if (!overview || viewedPlan || tradePending) return;
-    if (!/^[1-9]\d*$/.test(quantity) || !Number.isSafeInteger(Number(quantity))) {
-      setTradeError('请输入大于 0 的整数。');
+    const numericQuantity = Number(quantity);
+    if (quantity.trim() && Number.isFinite(numericQuantity) && numericQuantity <= 0) {
+      setTradeError('数量必须为大于0。');
       return;
     }
-    const candidate = [...operations, { type: direction, symbol, quantity: Number(quantity) }];
+    if (!/^\d+$/.test(quantity) || !Number.isSafeInteger(numericQuantity)) {
+      setTradeError('请输入整数。');
+      return;
+    }
+    const candidate = [...operations, { type: direction, symbol, quantity: numericQuantity }];
     setTradePending(true);
     setTradeError('');
     try {
