@@ -6,3 +6,5 @@ build/
 coverage/
 .env
 .env.*
+data/plans.json
+data/.plans.json.*.tmp
